@@ -15,7 +15,7 @@ class AppIcons {
 static const String appleICon = "$safrid/appleicon.svg ";
 
 
-
+static const String deleteicon = "$iconPath/delete.svg";
 
 
 
