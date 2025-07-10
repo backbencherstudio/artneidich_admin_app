@@ -1,13 +1,13 @@
 import 'dart:convert';
 
-class UserStateModel {
+class UserModel {
   final int index;
   final String userName;
   final String email;
   final String phoneNumber;
   final String role;
 
-  UserStateModel({
+  UserModel({
     required this.index,
     required this.userName,
     required this.email,
@@ -15,8 +15,8 @@ class UserStateModel {
     required this.role,
   });
 
-  factory UserStateModel.fromJson(Map<String, dynamic> json) {
-    return UserStateModel(
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
       index: json['index'],
       userName: json['userName'],
       email: json['email'],
@@ -24,26 +24,22 @@ class UserStateModel {
       role: json['role'],
     );
   }
+
+  @override
+  String toString() {
+    return 'UserStateModel(index: $index, userName: $userName, email: $email, phoneNumber: $phoneNumber, role: $role)';
+  }
 }
 
-class UserDataModel {
-  final List<UserStateModel> data;
+class UserDataCall {
+  /// Fetch users from the dummy data
+  static Future<List<UserModel>> fetchUser(String dummyData) async {
+    final decodedData = jsonDecode(dummyData);
 
-  UserDataModel({required this.data});
-
-  factory UserDataModel.fromJson(Map<String, dynamic> json) {
-    var list = json['data'] as List;
-    List<UserStateModel> userList = list.map((i) => UserStateModel.fromJson(i)).toList();
-    return UserDataModel(data: userList);
-  }
-
-  // Fetch users from the dummy data
-  static List<UserStateModel> fetchUser(String dummyData) {
-    // Decode the JSON string (dummy data)
-    final Map<String, dynamic> decodedData = jsonDecode(dummyData);
-    
-    // Parse the 'data' key, which contains the list of users
-    var list = decodedData['data'] as List;
-    return list.map((i) => UserStateModel.fromJson(i)).toList();
+    final listData = decodedData['data'];
+    List<UserModel> userJobList = (listData as List)
+        .map((item) => UserModel.fromJson(item))
+        .toList();
+    return userJobList;
   }
 }
