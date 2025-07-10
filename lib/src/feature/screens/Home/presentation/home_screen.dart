@@ -1,10 +1,12 @@
 import 'package:artneidich_admin/src/core/constant/padding.dart';
+import 'package:artneidich_admin/src/core/routes/route_constant.dart';
 import 'package:artneidich_admin/src/feature/screens/Home/presentation/widgets/custom_details_tile.dart';
 import 'package:artneidich_admin/src/feature/screens/Home/presentation/widgets/custom_info_tile.dart';
 import 'package:artneidich_admin/src/feature/screens/Home/presentation/widgets/custom_job_detail_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../core/constant/icons.dart';
 import '../../../../core/constant/images.dart';
 import '../../../../core/theme/theme_extension/color_pallete.dart';
@@ -140,6 +142,7 @@ class HomeScreen extends StatelessWidget {
                   Spacer(),
                   GestureDetector(
                     onTap: () {
+                      context.push(RouteConst.userMgmScreen);
                       // to show all list
                     },
                     child: Text(

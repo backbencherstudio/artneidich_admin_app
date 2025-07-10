@@ -72,8 +72,28 @@ class RouteConfig {
             transitionType: PageTransitionType.slideRightToLeft,
             child: HomeScreen(),
           );
+        },*/
+
+  
+   GoRoute(
+        path: RouteConst.userMgmScreen,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            context: context,
+            state: state,
+            transitionType: PageTransitionType.slideRightToLeft,
+            child: UserMgmtScreen(),
+          );
         },
-      ),*/
-    ]);
+      ),
+  
+  
+  
+  
+    ]
+    
+    
+    );
+
     
 }

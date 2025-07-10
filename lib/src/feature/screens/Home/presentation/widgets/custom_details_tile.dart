@@ -26,6 +26,7 @@ class CustomDetailsTile extends StatelessWidget {
 
     return Container(
       width: 357.w,
+      margin: EdgeInsets.only(bottom: 11.h),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16.r),
         border: Border.all(color: AppColor.borderColor),
