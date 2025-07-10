@@ -9,9 +9,10 @@ Future<String?> customPopupMenu({
   required BuildContext context,
   required GlobalKey key,
   required Set<String> list,
+  required List<String> iconListPath,
 }) async {
   final RenderBox renderBox =
-  key.currentContext!.findRenderObject() as RenderBox;
+      key.currentContext!.findRenderObject() as RenderBox;
   final Offset offset = renderBox.localToGlobal(Offset.zero);
 
   /// top-left position
@@ -22,10 +23,7 @@ Future<String?> customPopupMenu({
     color: Colors.white,
     elevation: 20,
     shadowColor: Colors.grey.withValues(alpha: 0.2),
-    constraints: BoxConstraints(
-      minWidth: 150.w,
-      maxHeight: 130.h,
-    ),
+    constraints: BoxConstraints(minWidth: 150.w, maxHeight: 130.h),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
     position: RelativeRect.fromLTRB(
       190.w,
@@ -47,7 +45,8 @@ Future<String?> customPopupMenu({
               spacing: 6.w,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SvgPicture.asset( i==0 ? AppIcons.editIcon : AppIcons.delete),
+                SvgPicture.asset(iconListPath[i]),
+                //( i==0 ? AppIcons.editIcon : AppIcons.delete),
                 Text(
                   areasList[i],
                   style: Theme.of(context).textTheme.bodyMedium,
@@ -59,9 +58,7 @@ Future<String?> customPopupMenu({
 
         /// Add a divider after each item except the last one
         if (i < areasList.length - 1) {
-          menuItems.add(
-            const PopupMenuDivider(color: AppColor.borderColor),
-          );
+          menuItems.add(const PopupMenuDivider(color: AppColor.borderColor));
         }
       }
       return menuItems;

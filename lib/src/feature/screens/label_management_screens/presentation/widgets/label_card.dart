@@ -1,5 +1,6 @@
 import 'package:artneidich_admin/src/core/constant/icons.dart';
 import 'package:artneidich_admin/src/core/theme/theme_extension/color_pallete.dart';
+import 'package:artneidich_admin/src/feature/common_widgets/commonWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -10,7 +11,7 @@ class LabelCard extends StatelessWidget {
   final int index;
   final String label;
   final GlobalKey menuKey = GlobalKey();
-   LabelCard({super.key, required this.index, required this.label});
+  LabelCard({super.key, required this.index, required this.label});
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +33,19 @@ class LabelCard extends StatelessWidget {
           GestureDetector(
             key: menuKey,
             onTap: () async {
-              final value = await customPopupMenu(key: menuKey,context: context, list: {"Edit", "Delete"});
+              final value = await customPopupMenu(
+                key: menuKey,
+                context: context,
+                list: {"Edit", "Delete"},
+                iconListPath: [AppIcons.editIcon, AppIcons.delete],
+              );
+              if (value == "Delete") {
+                if (context.mounted) {
+                  CommonWidget.deleteSheet(context: context, onTap: () {});
+                }
+              }
 
-           debugPrint("\nSelected value : $value\n");
+              debugPrint("\nSelected value : $value\n");
             },
             child: SvgPicture.asset(AppIcons.threedot),
           ),

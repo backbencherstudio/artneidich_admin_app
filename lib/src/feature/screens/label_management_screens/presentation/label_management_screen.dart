@@ -15,15 +15,20 @@ class LabelManagementScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: CustomFloatingActionButton(onTap: () {
-        createNewLabelBottomSheet(context: context);
-      }),
+      floatingActionButton: Padding(
+        padding: EdgeInsets.only(bottom: 100.h),
+        child: CustomFloatingActionButton(
+          onTap: () {
+            createNewLabelBottomSheet(context: context);
+          },
+        ),
+      ),
       body: Padding(
         padding: AppPadding.horizontalPadding,
         child: SingleChildScrollView(
           child: Column(
             children: [
-              CommonWidget.appBar(title: "User List"),
+              CommonWidget.appBar(title: "Label List"),
               SizedBox(height: 16.h),
               TextFormField(
                 decoration: InputDecoration(
@@ -48,7 +53,7 @@ class LabelManagementScreen extends StatelessWidget {
                 },
               ),
 
-              SizedBox(height: 150.h),
+              SizedBox(height: 220.h),
             ],
           ),
         ),
