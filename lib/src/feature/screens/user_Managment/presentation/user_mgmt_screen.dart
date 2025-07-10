@@ -32,7 +32,7 @@ class UserMgmtScreen extends StatelessWidget {
               ),
             ),
 
-        Consumer(
+            Consumer(
               builder: (_, ref, _) {
                 debugPrint('\ncalling user data \n');
                 final userData = ref.watch(userListProvider);
@@ -55,7 +55,8 @@ class UserMgmtScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  error: (error, stack) => Center(child: Text('Failed to load data')),
+                  error: (error, stack) =>
+                      Center(child: Text('Failed to load data')),
                   loading: () => Center(child: CircularProgressIndicator()),
                 );
               },
