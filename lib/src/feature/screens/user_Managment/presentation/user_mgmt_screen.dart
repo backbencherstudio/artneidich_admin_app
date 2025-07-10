@@ -33,7 +33,8 @@ class UserMgmtScreen extends StatelessWidget {
             ),
 
         Consumer(
-              builder: (context, ref, _) {
+              builder: (_, ref, _) {
+                debugPrint('\ncalling user data \n');
                 final userData = ref.watch(userListProvider);
 
                 return userData.when(
@@ -41,12 +42,14 @@ class UserMgmtScreen extends StatelessWidget {
                     return Expanded(
                       child: ListView.builder(
                         itemCount: userData.length,
-                        itemBuilder: (context, index) {
+                        itemBuilder: (_, index) {
                           final user = userData[index];
-                          return ListTile(
-                            title: Text(user.userName),
-                            subtitle: Text(user.role),
-                            trailing: Text(user.phoneNumber),
+                          return CustomDetailsTile(
+                            email: user.email,
+                            index: user.index,
+                            phoneNumber: user.phoneNumber,
+                            role: user.role,
+                            userName: user.userName,
                           );
                         },
                       ),
