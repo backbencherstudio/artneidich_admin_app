@@ -13,7 +13,7 @@ class AppTheme {
     elevatedButtonTheme: AppEvaluatedButtonThemes.lightEvaluatedButtonTheme,
     inputDecorationTheme: AppInputDecorationTheme.lightInputDecorationTheme,
     colorScheme: AppColor.lightColorScheme,
-    scaffoldBackgroundColor: AppColor.screenBackgroundColor,
+    scaffoldBackgroundColor: AppColor.white,
     appBarTheme: CustomAppBarTheme.lightAppBarTheme,
   );
 }
