@@ -3,12 +3,14 @@ import 'package:artneidich_admin/src/core/theme/theme_extension/color_pallete.da
 import 'package:artneidich_admin/src/feature/common_widgets/commonWidget.dart';
 import 'package:artneidich_admin/src/feature/screens/Home/presentation/widgets/custom_details_tile.dart';
 import 'package:artneidich_admin/src/feature/screens/user_Managment/Riverpod/state_notifier.dart';
+import 'package:artneidich_admin/src/feature/screens/user_Managment/presentation/widgets/add_user_bottomSheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/constant/icons.dart';
+import '../../../common_widgets/delete_bottomsheet/delete_bottomSheet.dart';
 
 class UserMgmtScreen extends StatelessWidget {
   const UserMgmtScreen({super.key});
@@ -80,7 +82,12 @@ class UserMgmtScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [Icon(Icons.add), Text("Add")],
             ),
-            onPressed: () {},
+            onPressed: () {
+              showDeleteSheet(context, (){
+                
+              });
+              showCreateNewUserSheet(context);
+            },
           ),
         ),
       ),
