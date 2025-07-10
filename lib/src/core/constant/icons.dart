@@ -30,9 +30,11 @@ static const String appleICon = "$safrid/appleicon.svg ";
       '$bottomNavIcon/briefcase_outlined.svg';
   static const String briefcaseSolid = '$bottomNavIcon/briefcase_solid.svg';
   static const String homeOutlined = '$bottomNavIcon/home_outlined.svg';
+  static const String userGroupSolid  = '$bottomNavIcon/user_group_solid.svg';
+  static const String userGroupOutlined = '$bottomNavIcon/users_group_outlined.svg';
   static const String homeSolid = '$bottomNavIcon/home_solid.svg';
-  static const String mapOutlined = '$bottomNavIcon/map_outlined.svg';
-  static const String mapSolid = '$bottomNavIcon/map_solid.svg';
+  static const String labelOutlined = '$bottomNavIcon/label_outlined.svg';
+  static const String labelSolid = '$bottomNavIcon/label_solid.svg';
   static const String settingOutlined = '$bottomNavIcon/setting_outlined.svg';
   static const String settingSolid = '$bottomNavIcon/setting_solid.svg';
   static const String appLogoPng = '$iconPath/app_logo.png';
@@ -45,7 +47,5 @@ static const String appleICon = "$safrid/appleicon.svg ";
 
   static const String successful = "$iconPath/successful.svg";
   static const String camera = "$iconPath/camera.svg";
-
-
 
 }
