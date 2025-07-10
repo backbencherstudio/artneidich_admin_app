@@ -25,14 +25,9 @@ class UserModel {
     );
   }
 
-  @override
-  String toString() {
-    return 'UserStateModel(index: $index, userName: $userName, email: $email, phoneNumber: $phoneNumber, role: $role)';
-  }
 }
 
 class UserDataCall {
-  /// Fetch users from the dummy data
   static Future<List<UserModel>> fetchUser(String dummyData) async {
     final decodedData = jsonDecode(dummyData);
 
