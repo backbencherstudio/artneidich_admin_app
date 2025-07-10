@@ -3,6 +3,7 @@ import 'package:artneidich_admin/src/core/theme/theme_extension/color_pallete.da
 import 'package:artneidich_admin/src/feature/common_widgets/commonWidget.dart';
 import 'package:artneidich_admin/src/feature/screens/Home/presentation/widgets/custom_details_tile.dart';
 import 'package:artneidich_admin/src/feature/screens/user_Managment/Riverpod/state_notifier.dart';
+import 'package:artneidich_admin/src/feature/screens/user_Managment/presentation/widgets/add_user_bottomSheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,7 +33,7 @@ class UserMgmtScreen extends StatelessWidget {
               ),
             ),
 
-        Consumer(
+            Consumer(
               builder: (_, ref, _) {
                 debugPrint('\ncalling user data \n');
                 final userData = ref.watch(userListProvider);
@@ -55,7 +56,8 @@ class UserMgmtScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  error: (error, stack) => Center(child: Text('Failed to load data')),
+                  error: (error, stack) =>
+                      Center(child: Text('Failed to load data')),
                   loading: () => Center(child: CircularProgressIndicator()),
                 );
               },
@@ -79,7 +81,9 @@ class UserMgmtScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [Icon(Icons.add), Text("Add")],
             ),
-            onPressed: () {},
+            onPressed: () {
+              showCreateNewUserSheet(context);
+            },
           ),
         ),
       ),
