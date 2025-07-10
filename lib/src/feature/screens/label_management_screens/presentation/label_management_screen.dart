@@ -20,22 +20,24 @@ class LabelManagementScreen extends StatelessWidget {
       }),
       body: Padding(
         padding: AppPadding.horizontalPadding,
-        child: Column(
-          children: [
-            CommonWidget.appBar(title: "User List"),
-            SizedBox(height: 16.h),
-            TextFormField(
-              decoration: InputDecoration(
-                hintText: "Search here...",
-                prefixIcon: Padding(
-                  padding: EdgeInsets.only(left: 16.w),
-                  child: SvgPicture.asset(AppIcons.search),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              CommonWidget.appBar(title: "User List"),
+              SizedBox(height: 16.h),
+              TextFormField(
+                decoration: InputDecoration(
+                  hintText: "Search here...",
+                  prefixIcon: Padding(
+                    padding: EdgeInsets.only(left: 16.w),
+                    child: SvgPicture.asset(AppIcons.search),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(height: 16.h),
-            Expanded(
-              child: ListView.builder(
+              SizedBox(height: 16.h),
+              ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
                 itemCount: 10,
                 padding: EdgeInsets.zero,
                 itemBuilder: (_, index) {
@@ -45,8 +47,10 @@ class LabelManagementScreen extends StatelessWidget {
                   );
                 },
               ),
-            ),
-          ],
+
+              SizedBox(height: 150.h),
+            ],
+          ),
         ),
       ),
     );
