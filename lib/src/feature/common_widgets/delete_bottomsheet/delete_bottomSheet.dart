@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../core/theme/theme_extension/color_pallete.dart';
 
-void showDeleteSheet(BuildContext context) {
+void showDeleteSheet(BuildContext context, void Function()? ontap) {
   final textTheme = Theme.of(context).textTheme;
 
   showModalBottomSheet(
@@ -53,7 +53,7 @@ void showDeleteSheet(BuildContext context) {
                           color: Color(0xffED544E).withOpacity(0.2),
                           border: Border.all(
                             color: Color(0xffE63946).withOpacity(0.3),
-                          )
+                          ),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -93,7 +93,9 @@ void showDeleteSheet(BuildContext context) {
                                     vertical: 13.h,
                                   ),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
                                 child: Text(
                                   "Cancel",
                                   style: textTheme.bodyLarge!.copyWith(
@@ -115,7 +117,7 @@ void showDeleteSheet(BuildContext context) {
                                     vertical: 13.h,
                                   ),
                                 ),
-                                onPressed: () {},
+                                onPressed: ontap,
                                 child: Text("Delete"),
                               ),
                             ),
