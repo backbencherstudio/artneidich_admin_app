@@ -1,9 +1,8 @@
-
 import 'package:artneidich_admin/src/core/routes/route_constant.dart';
 import 'package:artneidich_admin/src/feature/common_widgets/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:artneidich_admin/src/feature/screens/Home/presentation/home_screen.dart';
 import 'package:artneidich_admin/src/feature/screens/job_management_screen/presentation/job_management_screen.dart';
-import 'package:artneidich_admin/src/feature/screens/label_management/label_management.dart';
+import 'package:artneidich_admin/src/feature/screens/label_management_screens/presentation/label_management_screen.dart';
 import 'package:artneidich_admin/src/feature/screens/profile_setting/profile_settings_screen.dart';
 import 'package:artneidich_admin/src/feature/screens/user_Managment/presentation/user_mgmt_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -12,7 +11,7 @@ import 'build_page_with_transition.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteConst.jobManagementScreen,
+    initialLocation: RouteConst.labelManagementScreen,
 
     routes: [
       
@@ -48,7 +47,7 @@ class RouteConfig {
             routes: [
               GoRoute(
                 path: RouteConst.labelManagementScreen,
-                builder: (context, state) => const LabelManagement(),
+                builder: (context, state) => const LabelManagementScreen(),
               ),
             ],
           ),
@@ -72,9 +71,24 @@ class RouteConfig {
             transitionType: PageTransitionType.slideRightToLeft,
             child: HomeScreen(),
           );
+<<<<<<< HEAD
+        },
+      ),
+      GoRoute(
+        path: RouteConst.labelManagementScreen,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            context: context,
+            state: state,
+            transitionType: PageTransitionType.slideRightToLeft,
+            child: LabelManagementScreen(),
+          );
+        },
+      ),
+=======
         },*/
 
-  
+
    GoRoute(
         path: RouteConst.userMgmScreen,
         pageBuilder: (context, state) {

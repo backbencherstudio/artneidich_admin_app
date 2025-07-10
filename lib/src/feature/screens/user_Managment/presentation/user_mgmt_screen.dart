@@ -82,10 +82,7 @@ class UserMgmtScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [Icon(Icons.add), Text("Add")],
             ),
-            onPressed: () {
-              showDeleteSheet(context, (){
-                
-              });
+            onPressed: () async {
               showCreateNewUserSheet(context);
             },
           ),
