@@ -2,7 +2,7 @@ class AppIcons {
   static const String iconPath = 'assets/icons';
   static const String bottomNavIcon = '$iconPath/bottom_nav_bar';
   static const String home = 'assets/home_icons';
-
+    static const String  safrid = "assets/safrid";
   static const String backButton = '$home/back_button.svg';
   static const String bell = '$home/bell.svg';
   static const String bookMark = '$home/book_mark.svg';
@@ -12,7 +12,7 @@ class AppIcons {
   static const String search = '$home/search.svg';
   static const String group = '$home/group.svg';
   static const String threedot = '$home/threeDot.svg';
-
+static const String appleICon = "$safrid/appleicon.svg ";
 
 
 

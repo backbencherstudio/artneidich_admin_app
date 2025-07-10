@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../core/constant/icons.dart';
-import '../../../../core/constant/images.dart';
 import '../../../../core/theme/theme_extension/color_pallete.dart';
+import '../../../common_widgets/commonWidget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -18,62 +18,63 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppColor.screenBackgroundColor,
-      appBar: AppBar(
-        centerTitle: false,
-        backgroundColor: Colors.transparent,
-        leadingWidth: 56.w,
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Welcome Back",
-              style: textTheme.titleSmall!.copyWith(
-                fontSize: 18.sp,
-                fontWeight: FontWeight.w600,
-                color: AppColor.textColor,
-              ),
-            ),
-            SizedBox(height: 2.h),
-            Text(
-              "Beginner Roay",
-              style: textTheme.titleSmall!.copyWith(
-                fontSize: 18.sp,
-                fontWeight: FontWeight.w400,
-                color: AppColor.greyTextColor,
-              ),
-            ),
-          ],
-        ),
-        leading: Align(
-          alignment: Alignment.centerRight,
-          child: Image.asset(AppImages.wprofilepic, height: 48.h, width: 48.w),
-        ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 16.w),
-            child: Container(
-              height: 32.h,
-              width: 32.w,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: AppColor.surfaceColor,
-              ),
-              child: GestureDetector(
-                onTap: () {},
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SvgPicture.asset(AppIcons.bell),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
+      // appBar: AppBar(
+      //   centerTitle: false,
+      //   backgroundColor: Colors.transparent,
+      //   leadingWidth: 56.w,
+      //   title: Column(
+      //     crossAxisAlignment: CrossAxisAlignment.start,
+      //     children: [
+      //       Text(
+      //         "Welcome Back",
+      //         style: textTheme.titleSmall!.copyWith(
+      //           fontSize: 18.sp,
+      //           fontWeight: FontWeight.w600,
+      //           color: AppColor.textColor,
+      //         ),
+      //       ),
+      //       SizedBox(height: 2.h),
+      //       Text(
+      //         "Beginner Roay",
+      //         style: textTheme.titleSmall!.copyWith(
+      //           fontSize: 18.sp,
+      //           fontWeight: FontWeight.w400,
+      //           color: AppColor.greyTextColor,
+      //         ),
+      //       ),
+      //     ],
+      //   ),
+      //   leading: Align(
+      //     alignment: Alignment.centerRight,
+      //     child: Image.asset(AppImages.wprofilepic, height: 48.h, width: 48.w),
+      //   ),
+      //   actions: [
+      //     Padding(
+      //       padding: EdgeInsets.only(right: 16.w),
+      //       child: Container(
+      //         height: 32.h,
+      //         width: 32.w,
+      //         decoration: BoxDecoration(
+      //           shape: BoxShape.circle,
+      //           color: AppColor.surfaceColor,
+      //         ),
+      //         child: GestureDetector(
+      //           onTap: () {},
+      //           child: Padding(
+      //             padding: const EdgeInsets.all(8.0),
+      //             child: SvgPicture.asset(AppIcons.bell),
+      //           ),
+      //         ),
+      //       ),
+      //     ),
+      //   ],
+      // ),
       body: Padding(
         padding: AppPadding.horizontalPadding,
         child: SingleChildScrollView(
           child: Column(
             children: [
+              CommonWidget.appBar(title: "user List"),
               SizedBox(height: 16.h),
               TextFormField(
                 decoration: InputDecoration(
