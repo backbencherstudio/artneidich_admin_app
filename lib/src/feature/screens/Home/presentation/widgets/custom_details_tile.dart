@@ -1,19 +1,20 @@
 import 'package:artneidich_admin/src/core/constant/icons.dart';
 import 'package:artneidich_admin/src/core/theme/theme_extension/color_pallete.dart';
-import 'package:artneidich_admin/src/feature/common_widgets/commonWidget.dart';
+import 'package:artneidich_admin/src/feature/common_widgets/delete_bottomsheet/delete_bottomSheet.dart';
 import 'package:artneidich_admin/src/feature/screens/Home/presentation/widgets/custom_row_text.dart';
 import 'package:artneidich_admin/src/feature/screens/label_management_screens/presentation/widgets/menu_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class CustomDetailsTile extends StatelessWidget {
+class CustomDetailsTile extends ConsumerWidget {
   final int index;
   final String userName;
   final String email;
   final String phoneNumber;
   final String role;
- final GlobalKey _key = GlobalKey();
+  final GlobalKey _key = GlobalKey();
   CustomDetailsTile({
     super.key,
     required this.index,
@@ -24,7 +25,7 @@ class CustomDetailsTile extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final textTheme = Theme.of(context).textTheme;
 
     return Container(
@@ -69,8 +70,10 @@ class CustomDetailsTile extends StatelessWidget {
                     if (value != null) {
                       debugPrint('\n\n$value\n\n');
                     }
-                    if(value == 'Delete'){
-                      CommonWidget.deleteSheet(context: context, onTap: (){});
+                    if (value == 'Delete') {
+                      showDeleteSheet(context: context, ref: ref, onTap: () {});
+
+                      // CommonWidget.deleteSheet(context: context, onTap: (){});
                     }
                   },
                   child: SvgPicture.asset(AppIcons.threedot),

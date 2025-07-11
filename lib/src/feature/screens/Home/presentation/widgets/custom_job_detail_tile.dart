@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:artneidich_admin/src/feature/common_widgets/delete_bottomsheet/delete_bottomSheet.dart';
 import 'package:artneidich_admin/src/feature/screens/Home/presentation/widgets/custom_row_text.dart';
 import 'package:artneidich_admin/src/feature/screens/job_management_screen/presentation/widget/admin_bottomsheet.dart';
 import 'package:artneidich_admin/src/feature/screens/job_management_screen/presentation/widget/inspection_note_bottomSheet.dart';
@@ -12,7 +13,6 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/constant/icons.dart';
 import '../../../../../core/theme/theme_extension/color_pallete.dart';
-import '../../../../common_widgets/commonWidget.dart';
 
 class CustomJobDetailTile extends ConsumerWidget {
   final int index;
@@ -97,7 +97,9 @@ class CustomJobDetailTile extends ConsumerWidget {
                       showInspectionNoteSheet(context, ref);
                     }
                     if (value == 'Delete') {
-                      CommonWidget.deleteSheet(context: context, onTap: () {});
+
+                      showDeleteSheet(context: context, ref: ref, onTap: (){});
+                      // CommonWidget.deleteSheet(context: context, onTap: () {});
                     }
                   },
                   child: SvgPicture.asset(AppIcons.threedot),
