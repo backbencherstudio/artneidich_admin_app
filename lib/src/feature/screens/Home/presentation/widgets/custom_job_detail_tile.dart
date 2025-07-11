@@ -1,6 +1,8 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:artneidich_admin/src/feature/screens/Home/presentation/widgets/custom_row_text.dart';
+import 'package:artneidich_admin/src/feature/screens/job_management_screen/presentation/widget/admin_bottomsheet.dart';
+import 'package:artneidich_admin/src/feature/screens/job_management_screen/presentation/widget/inspection_note_bottomSheet.dart';
 import 'package:artneidich_admin/src/feature/screens/job_management_screen/presentation/widget/show_create_job_sheet.dart';
 import 'package:artneidich_admin/src/feature/screens/label_management_screens/presentation/widgets/menu_card.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +15,7 @@ import '../../../../../core/theme/theme_extension/color_pallete.dart';
 import '../../../../common_widgets/commonWidget.dart';
 
 class CustomJobDetailTile extends ConsumerWidget {
-
- final int index;
+  final int index;
   final String inspectorName;
   final String address;
   final String fhaNumber;
@@ -23,7 +24,7 @@ class CustomJobDetailTile extends ConsumerWidget {
   final String status;
   final String? adminNote;
   final GlobalKey _key = GlobalKey();
-   CustomJobDetailTile({
+  CustomJobDetailTile({
     super.key,
     required this.index,
     required this.inspectorName,
@@ -48,7 +49,6 @@ class CustomJobDetailTile extends ConsumerWidget {
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          
           children: [
             Row(
               children: [
@@ -69,24 +69,35 @@ class CustomJobDetailTile extends ConsumerWidget {
                   ),
                 ),
                 Spacer(),
-               GestureDetector(
+                GestureDetector(
                   key: _key,
                   onTap: () async {
                     final value = await customPopupMenu(
                       height: 222.h,
                       context: context,
                       key: _key,
-                      list: {"Add note","Inspector Issue","Edit", "Delete"},
-                      iconListPath: [AppIcons.notepad,AppIcons.inspection,AppIcons.editIcon, AppIcons.delete],
+                      list: {"Add note", "Inspector Issue", "Edit", "Delete"},
+                      iconListPath: [
+                        AppIcons.notepad,
+                        AppIcons.inspection,
+                        AppIcons.editIcon,
+                        AppIcons.delete,
+                      ],
                     );
                     if (value != null) {
                       debugPrint('\n\n$value\n\n');
                     }
-                    if(value == 'Edit'){
-                     showCreateJobSheet(context , ref);
+                    if (value == 'Edit') {
+                      showCreateJobSheet(context, ref);
                     }
-                    if(value == 'Delete'){
-                      CommonWidget.deleteSheet(context: context, onTap: (){});
+                    if (value == 'Inspector Issue') {
+                      showAdminUpdateSheet(context, ref);
+                    }
+                    if (value == 'Add note') {
+                      showInspectionNoteSheet(context, ref);
+                    }
+                    if (value == 'Delete') {
+                      CommonWidget.deleteSheet(context: context, onTap: () {});
                     }
                   },
                   child: SvgPicture.asset(AppIcons.threedot),
@@ -108,7 +119,10 @@ class CustomJobDetailTile extends ConsumerWidget {
             SizedBox(height: 16.h),
             CustomRowText(title: 'Status', discription: status),
             SizedBox(height: 16.h),
-            CustomRowText(title: 'Admin Note', discription: adminNote ?? "-----"),
+            CustomRowText(
+              title: 'Admin Note',
+              discription: adminNote ?? "-----",
+            ),
           ],
         ),
       ),

@@ -21,6 +21,7 @@ static const String deleteicon = "$iconPath/delete.svg";
 static const String inspection = "$iconPath/inspect.svg";
 static const String notepad = '$iconPath/notepad.svg';
 
+static const String crossIcon = '$iconPath/times.svg';
 
 
 
