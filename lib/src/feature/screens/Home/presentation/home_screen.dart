@@ -19,7 +19,6 @@ class HomeScreen extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
-      backgroundColor: AppColor.screenBackgroundColor,
       appBar: AppBar(
         centerTitle: false,
         backgroundColor: Colors.transparent,
