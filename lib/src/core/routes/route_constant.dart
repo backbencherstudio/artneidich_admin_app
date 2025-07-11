@@ -16,5 +16,6 @@ class RouteConst{
   static const String successfullyRegisteredScreen = '/successfully';
   static const String splash = '/splash';
   static const String fullUserList = "/FullUserList";
+  static const String jobMgmntScreen = "/JobManagementScreen";
 
 }
