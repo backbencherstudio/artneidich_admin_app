@@ -46,6 +46,7 @@ class CustomInfoTile extends StatelessWidget {
             Text(
               lebel,
               style: textTheme.bodyLarge!.copyWith(
+                fontSize: 14.sp,
                 fontWeight: FontWeight.w500,
                 color: AppColor.secondaryTextColor,
               ),

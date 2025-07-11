@@ -1,4 +1,6 @@
+import 'package:artneidich_admin/src/feature/common_widgets/bottom_nav_bar/bottom_sheet_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
@@ -7,7 +9,10 @@ import '../../../../../../../core/constant/icons.dart';
 import '../../../../../../../core/routes/route_constant.dart';
 import '../../../../../../../core/theme/theme_extension/color_pallete.dart';
 
-Future<void> logOutBottomSheet({required BuildContext context}) async {
+Future<void> logOutBottomSheet({required BuildContext context, required WidgetRef ref}) async {
+ 
+   ref.read(bottomSheetVisibilityProvider.notifier).state = true;
+
   await showModalBottomSheet(
     context: context,
     backgroundColor: Colors.transparent,
@@ -16,8 +21,8 @@ Future<void> logOutBottomSheet({required BuildContext context}) async {
     builder: (context) {
       final textTheme = Theme.of(context).textTheme;
       return Container(
-        margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 140.h),
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
+        margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 40.h),
+        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16.r),
@@ -91,5 +96,8 @@ Future<void> logOutBottomSheet({required BuildContext context}) async {
         ),
       );
     },
-  );
+  ).whenComplete((){
+      ref.read(bottomSheetVisibilityProvider.notifier).state = false;
+
+  });
 }
