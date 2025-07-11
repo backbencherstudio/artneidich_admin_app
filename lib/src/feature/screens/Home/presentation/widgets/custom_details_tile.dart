@@ -1,6 +1,6 @@
 import 'package:artneidich_admin/src/core/constant/icons.dart';
 import 'package:artneidich_admin/src/core/theme/theme_extension/color_pallete.dart';
-import 'package:artneidich_admin/src/feature/common_widgets/delete_bottomsheet/delete_bottomSheet.dart';
+import 'package:artneidich_admin/src/feature/common_widgets/commonWidget.dart';
 import 'package:artneidich_admin/src/feature/screens/Home/presentation/widgets/custom_row_text.dart';
 import 'package:artneidich_admin/src/feature/screens/label_management_screens/presentation/widgets/menu_card.dart';
 import 'package:flutter/material.dart';
@@ -71,9 +71,9 @@ class CustomDetailsTile extends ConsumerWidget {
                       debugPrint('\n\n$value\n\n');
                     }
                     if (value == 'Delete') {
-                      showDeleteSheet(context: context, ref: ref, onTap: () {});
+                      // showDeleteSheet(context: context, ref: ref, onTap: () {});
 
-                      // CommonWidget.deleteSheet(context: context, onTap: (){});
+                      CommonWidget.deleteSheet(context: context, onTap: (){}, ref: ref);
                     }
                   },
                   child: SvgPicture.asset(AppIcons.threedot),

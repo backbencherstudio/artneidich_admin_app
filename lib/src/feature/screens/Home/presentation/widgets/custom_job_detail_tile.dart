@@ -1,6 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'package:artneidich_admin/src/feature/common_widgets/delete_bottomsheet/delete_bottomSheet.dart';
+import 'package:artneidich_admin/src/feature/common_widgets/commonWidget.dart';
 import 'package:artneidich_admin/src/feature/screens/Home/presentation/widgets/custom_row_text.dart';
 import 'package:artneidich_admin/src/feature/screens/job_management_screen/presentation/widget/admin_bottomsheet.dart';
 import 'package:artneidich_admin/src/feature/screens/job_management_screen/presentation/widget/inspection_note_bottomSheet.dart';
@@ -98,8 +98,8 @@ class CustomJobDetailTile extends ConsumerWidget {
                     }
                     if (value == 'Delete') {
 
-                      showDeleteSheet(context: context, ref: ref, onTap: (){});
-                      // CommonWidget.deleteSheet(context: context, onTap: () {});
+                      // showDeleteSheet(context: context, ref: ref, onTap: (){});
+                      CommonWidget.deleteSheet(context: context, onTap: () {}, ref: ref);
                     }
                   },
                   child: SvgPicture.asset(AppIcons.threedot),
