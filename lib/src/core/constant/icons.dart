@@ -18,6 +18,8 @@ static const String appleICon = "$safrid/appleicon.svg ";
 static const String deleteicon = "$iconPath/delete.svg";
 
 
+static const String inspection = "$iconPath/inspect.svg";
+static const String notepad = '$iconPath/notepad.svg';
 
 
 

@@ -16,6 +16,7 @@ class UserMgmtScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Padding(
         padding: AppPadding.horizontalPadding,
@@ -45,12 +46,14 @@ class UserMgmtScreen extends StatelessWidget {
                         itemCount: userData.length,
                         itemBuilder: (_, index) {
                           final user = userData[index];
+
                           return CustomDetailsTile(
                             email: user.email,
                             index: user.index,
                             phoneNumber: user.phoneNumber,
                             role: user.role,
                             userName: user.userName,
+                            
                           );
                         },
                       ),

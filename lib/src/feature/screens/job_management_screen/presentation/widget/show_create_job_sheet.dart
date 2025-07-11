@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:artneidich_admin/src/core/theme/theme_extension/color_pallete.dart';
-import 'package:artneidich_admin/src/feature/common_widgets/circle_check_box/circle_ckeckBoc.dart';
 import '../../../../common_widgets/bottom_nav_bar/bottom_sheet_provider.dart';
 import 'action_button.dart';
 import 'build_text_field.dart';

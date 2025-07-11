@@ -10,6 +10,7 @@ Future<String?> customPopupMenu({
   required GlobalKey key,
   required Set<String> list,
   required List<String> iconListPath,
+   double? height,
 }) async {
   final RenderBox renderBox =
       key.currentContext!.findRenderObject() as RenderBox;
@@ -23,7 +24,7 @@ Future<String?> customPopupMenu({
     color: Colors.white,
     elevation: 20,
     shadowColor: Colors.grey.withValues(alpha: 0.2),
-    constraints: BoxConstraints(minWidth: 150.w, maxHeight: 130.h),
+    constraints: BoxConstraints(minWidth: 150.w, maxHeight:height?? 130.h),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
     position: RelativeRect.fromLTRB(
       190.w,
