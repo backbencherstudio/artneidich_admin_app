@@ -32,7 +32,7 @@ Future<void> showDeleteSheet({
               left: 8.w,
               right: 8.w,
               top: 20.h,
-             
+              bottom: 20.h
             ),
             decoration: BoxDecoration(
               color: Color(0xffffffff),
@@ -65,6 +65,7 @@ Future<void> showDeleteSheet({
                     child: SvgPicture.asset(AppIcons.deleteicon),
                   ),
                 ),
+                SizedBox(height: 16.h),
 
                 Text(
                   "Are You Sure?",
@@ -131,6 +132,8 @@ Future<void> showDeleteSheet({
                     ),
                   ],
                 ),
+                                SizedBox(height: 18.h),
+
               ],
             ),
           ),
