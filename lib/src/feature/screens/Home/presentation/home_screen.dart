@@ -141,7 +141,6 @@ class HomeScreen extends StatelessWidget {
                   Spacer(),
                   GestureDetector(
                     onTap: () {
-                      context.push(RouteConst.userMgmScreen);
                       // to show all list
                     },
                     child: Text(

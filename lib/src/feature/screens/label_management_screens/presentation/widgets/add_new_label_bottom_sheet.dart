@@ -1,9 +1,16 @@
+import 'package:artneidich_admin/src/feature/common_widgets/bottom_nav_bar/bottom_sheet_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-Future<void> createNewLabelBottomSheet({required BuildContext context}) async {
+Future<void> createNewLabelBottomSheet({required BuildContext context, required WidgetRef ref}) async {
+    ref.read(bottomSheetVisibilityProvider.notifier).state = true;
+
   await showModalBottomSheet(
+
+
+
     context: context,
     useSafeArea: true,
     isScrollControlled: true,
@@ -60,5 +67,8 @@ Future<void> createNewLabelBottomSheet({required BuildContext context}) async {
         ),
       );
     },
-  );
+  ).whenComplete((){
+      ref.read(bottomSheetVisibilityProvider.notifier).state = false;
+
+  });
 }
