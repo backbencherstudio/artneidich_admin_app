@@ -22,7 +22,6 @@ import 'build_page_with_transition.dart';
 class RouteConfig {
   GoRouter goRouter = GoRouter(
     initialLocation: RouteConst.splash,
-
     routes: [
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) =>
@@ -32,7 +31,7 @@ class RouteConfig {
             routes: [
               GoRoute(
                 path: RouteConst.homeScreen,
-                builder: (context, state) =>  HomeScreen(),
+                builder: (context, state) => const HomeScreen(),
               ),
             ],
           ),
@@ -70,8 +69,6 @@ class RouteConfig {
           ),
         ],
       ),
-
-
       GoRoute(
         path: RouteConst.userMgmScreen,
         pageBuilder: (context, state) {
@@ -79,31 +76,21 @@ class RouteConfig {
             context: context,
             state: state,
             transitionType: PageTransitionType.slideRightToLeft,
-            child: UserMgmtScreen(),
+            child: const UserMgmtScreen(),
           );
         },
       ),
-  
-  
-  GoRoute(
+      GoRoute(
         path: RouteConst.fullUserList,
         pageBuilder: (context, state) {
           return buildPageWithTransition(
             context: context,
             state: state,
             transitionType: PageTransitionType.slideRightToLeft,
-            child: FullUserList(),
+            child: const FullUserList(),
           );
         },
       ),
-  
-  
-    ]
-    
-    
-    );
-
-
       GoRoute(
         path: RouteConst.signInScreen,
         pageBuilder: (context, state) {
@@ -111,7 +98,7 @@ class RouteConfig {
             context: context,
             state: state,
             transitionType: PageTransitionType.slideRightToLeft,
-            child: SignInScreen(),
+            child: const SignInScreen(),
           );
         },
       ),
@@ -122,7 +109,7 @@ class RouteConfig {
             context: context,
             state: state,
             transitionType: PageTransitionType.slideRightToLeft,
-            child: ForgetPasswordScreen(),
+            child: const ForgetPasswordScreen(),
           );
         },
       ),
@@ -138,7 +125,6 @@ class RouteConfig {
           );
         },
       ),
-
       GoRoute(
         path: RouteConst.passwordResetScreen,
         pageBuilder: (context, state) {
@@ -151,7 +137,6 @@ class RouteConfig {
           );
         },
       ),
-
       GoRoute(
         path: RouteConst.successfulScreen,
         pageBuilder: (context, state) {
@@ -171,11 +156,10 @@ class RouteConfig {
             context: context,
             state: state,
             transitionType: PageTransitionType.slideBottomToTop,
-            child: SignUpScreen(),
+            child: const SignUpScreen(),
           );
         },
       ),
-
       GoRoute(
         path: RouteConst.splash,
         pageBuilder: (context, state) {
@@ -183,11 +167,10 @@ class RouteConfig {
             context: context,
             state: state,
             transitionType: PageTransitionType.slideBottomToTop,
-            child: SplashScreen(),
+            child: const SplashScreen(),
           );
         },
       ),
-
       GoRoute(
         path: RouteConst.editProfileScreen,
         pageBuilder: (context, state) {
@@ -195,11 +178,10 @@ class RouteConfig {
             context: context,
             state: state,
             transitionType: PageTransitionType.slideBottomToTop,
-            child: EditProfileScreen(),
+            child: const EditProfileScreen(),
           );
         },
       ),
-
       GoRoute(
         path: RouteConst.changePasswordScreen,
         pageBuilder: (context, state) {
@@ -207,12 +189,10 @@ class RouteConfig {
             context: context,
             state: state,
             transitionType: PageTransitionType.slideBottomToTop,
-            child: ChangePasswordScreen(),
+            child: const ChangePasswordScreen(),
           );
         },
       ),
-
-
     ],
   );
 }
