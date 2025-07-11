@@ -10,13 +10,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/constant/icons.dart';
-import '../../../common_widgets/delete_bottomsheet/delete_bottomSheet.dart';
 
 class UserMgmtScreen extends StatelessWidget {
   const UserMgmtScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Padding(
         padding: AppPadding.horizontalPadding,
@@ -46,12 +46,14 @@ class UserMgmtScreen extends StatelessWidget {
                         itemCount: userData.length,
                         itemBuilder: (_, index) {
                           final user = userData[index];
+
                           return CustomDetailsTile(
                             email: user.email,
                             index: user.index,
                             phoneNumber: user.phoneNumber,
                             role: user.role,
                             userName: user.userName,
+                            
                           );
                         },
                       ),

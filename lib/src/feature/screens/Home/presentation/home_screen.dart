@@ -160,6 +160,7 @@ class HomeScreen extends StatelessWidget {
               ),
               SizedBox(height: 16.h),
               CustomDetailsTile(
+             
                 index: 1,
                 userName: 'Artneidich',
                 email: 'art@artneidich.com',
