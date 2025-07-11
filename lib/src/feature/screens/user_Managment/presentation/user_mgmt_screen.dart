@@ -69,24 +69,27 @@ class UserMgmtScreen extends ConsumerWidget {
         ),
       ),
       floatingActionButton: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: SizedBox(
-          width: 98.w,
-          height: 60.h,
-          child: FloatingActionButton(
-            elevation: 10,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadiusGeometry.circular(16.r),
+        padding: EdgeInsetsGeometry.only(bottom: 100.h),
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: SizedBox(
+            width: 98.w,
+            height: 60.h,
+            child: FloatingActionButton(
+              elevation: 10,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadiusGeometry.circular(16.r),
+              ),
+              backgroundColor: AppColor.primaryColor,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [Icon(Icons.add), Text("Add")],
+              ),
+              onPressed: () async {
+                showCreateNewUserSheet(context, ref);
+              },
             ),
-            backgroundColor: AppColor.primaryColor,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [Icon(Icons.add), Text("Add")],
-            ),
-            onPressed: () async {
-              showCreateNewUserSheet(context, ref);
-            },
           ),
         ),
       ),

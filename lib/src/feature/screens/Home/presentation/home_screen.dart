@@ -12,7 +12,9 @@ import '../../../../core/constant/images.dart';
 import '../../../../core/theme/theme_extension/color_pallete.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+
+  const HomeScreen({super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -142,6 +144,7 @@ class HomeScreen extends StatelessWidget {
                   GestureDetector(
                     onTap: () {
                       // to show all list
+                      context.push(RouteConst.userMgmScreen);
                     },
                     child: Text(
                       "See all",
@@ -183,6 +186,8 @@ class HomeScreen extends StatelessWidget {
                   GestureDetector(
                     onTap: () {
                       // to show all list
+                                            context.push(RouteConst.jobManagementScreen);
+
                     },
                     child: Text(
                       "See all",
