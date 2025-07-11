@@ -1,5 +1,7 @@
 import 'package:artneidich_admin/src/core/constant/icons.dart';
+import 'package:artneidich_admin/src/feature/common_widgets/bottom_nav_bar/bottom_sheet_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -8,8 +10,10 @@ import '../../../core/theme/theme_extension/color_pallete.dart';
 Future<void> showDeleteSheet({
   required BuildContext context,
   required Function onTap,
+  WidgetRef? ref,
 }) async {
   final textTheme = Theme.of(context).textTheme;
+  ref?.read(bottomSheetVisibilityProvider.notifier).state = true;
 
   await showModalBottomSheet(
     context: context,
@@ -28,7 +32,7 @@ Future<void> showDeleteSheet({
               left: 8.w,
               right: 8.w,
               top: 20.h,
-              bottom: 110.h,
+              bottom: 20.h,
             ),
             decoration: BoxDecoration(
               color: Color(0xffffffff),
@@ -61,6 +65,7 @@ Future<void> showDeleteSheet({
                     child: SvgPicture.asset(AppIcons.deleteicon),
                   ),
                 ),
+                SizedBox(height: 16.h),
 
                 Text(
                   "Are You Sure?",
@@ -127,11 +132,14 @@ Future<void> showDeleteSheet({
                     ),
                   ],
                 ),
+                SizedBox(height: 18.h),
               ],
             ),
           ),
         ),
       );
     },
-  );
+  ).whenComplete(() {
+    ref?.read(bottomSheetVisibilityProvider.notifier).state = false;
+  });
 }

@@ -12,14 +12,15 @@ import '../../../../core/constant/images.dart';
 import '../../../../core/theme/theme_extension/color_pallete.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+
+  const HomeScreen({super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
-      backgroundColor: AppColor.screenBackgroundColor,
       appBar: AppBar(
         centerTitle: false,
         backgroundColor: Colors.transparent,
@@ -142,8 +143,8 @@ class HomeScreen extends StatelessWidget {
                   Spacer(),
                   GestureDetector(
                     onTap: () {
-                      context.push(RouteConst.userMgmScreen);
                       // to show all list
+                      context.push(RouteConst.userMgmScreen);
                     },
                     child: Text(
                       "See all",
@@ -160,6 +161,7 @@ class HomeScreen extends StatelessWidget {
               ),
               SizedBox(height: 16.h),
               CustomDetailsTile(
+             
                 index: 1,
                 userName: 'Artneidich',
                 email: 'art@artneidich.com',
@@ -184,6 +186,8 @@ class HomeScreen extends StatelessWidget {
                   GestureDetector(
                     onTap: () {
                       // to show all list
+                                            context.push(RouteConst.jobManagementScreen);
+
                     },
                     child: Text(
                       "See all",

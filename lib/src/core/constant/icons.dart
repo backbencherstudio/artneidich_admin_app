@@ -16,6 +16,18 @@ class AppIcons {
   static const String deleteicon = "$iconPath/delete.svg";
   static const String call = "$iconPath/call.svg";
   static const String city = "$iconPath/city.svg";
+
+static const String inspection = "$iconPath/inspect.svg";
+static const String notepad = '$iconPath/notepad.svg';
+
+static const String crossIcon = '$iconPath/times.svg';
+
+
+
+
+
+  //old project icons
+
   static const String briefcaseOutlined =
       '$bottomNavIcon/briefcase_outlined.svg';
   static const String briefcaseSolid = '$bottomNavIcon/briefcase_solid.svg';

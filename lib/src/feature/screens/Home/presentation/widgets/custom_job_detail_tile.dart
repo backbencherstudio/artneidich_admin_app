@@ -1,14 +1,21 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:artneidich_admin/src/feature/common_widgets/commonWidget.dart';
 import 'package:artneidich_admin/src/feature/screens/Home/presentation/widgets/custom_row_text.dart';
+import 'package:artneidich_admin/src/feature/screens/job_management_screen/presentation/widget/admin_bottomsheet.dart';
+import 'package:artneidich_admin/src/feature/screens/job_management_screen/presentation/widget/inspection_note_bottomSheet.dart';
+import 'package:artneidich_admin/src/feature/screens/job_management_screen/presentation/widget/show_create_job_sheet.dart';
+import 'package:artneidich_admin/src/feature/screens/label_management_screens/presentation/widgets/menu_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/constant/icons.dart';
 import '../../../../../core/theme/theme_extension/color_pallete.dart';
 
-class CustomJobDetailTile extends StatelessWidget {
-
- final int index;
+class CustomJobDetailTile extends ConsumerWidget {
+  final int index;
   final String inspectorName;
   final String address;
   final String fhaNumber;
@@ -16,8 +23,8 @@ class CustomJobDetailTile extends StatelessWidget {
   final String completedAt;
   final String status;
   final String? adminNote;
-
-  const CustomJobDetailTile({
+  final GlobalKey _key = GlobalKey();
+  CustomJobDetailTile({
     super.key,
     required this.index,
     required this.inspectorName,
@@ -30,7 +37,7 @@ class CustomJobDetailTile extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final textTheme = Theme.of(context).textTheme;
 
     return Container(
@@ -42,7 +49,6 @@ class CustomJobDetailTile extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          
           children: [
             Row(
               children: [
@@ -63,7 +69,41 @@ class CustomJobDetailTile extends StatelessWidget {
                   ),
                 ),
                 Spacer(),
-                SvgPicture.asset(AppIcons.threedot),
+                GestureDetector(
+                  key: _key,
+                  onTap: () async {
+                    final value = await customPopupMenu(
+                      height: 222.h,
+                      context: context,
+                      key: _key,
+                      list: {"Add note", "Inspector Issue", "Edit", "Delete"},
+                      iconListPath: [
+                        AppIcons.notepad,
+                        AppIcons.inspection,
+                        AppIcons.editIcon,
+                        AppIcons.delete,
+                      ],
+                    );
+                    if (value != null) {
+                      debugPrint('\n\n$value\n\n');
+                    }
+                    if (value == 'Edit') {
+                      showCreateJobSheet(context, ref);
+                    }
+                    if (value == 'Inspector Issue') {
+                      showAdminUpdateSheet(context, ref);
+                    }
+                    if (value == 'Add note') {
+                      showInspectionNoteSheet(context, ref);
+                    }
+                    if (value == 'Delete') {
+
+                      // showDeleteSheet(context: context, ref: ref, onTap: (){});
+                      CommonWidget.deleteSheet(context: context, onTap: () {}, ref: ref);
+                    }
+                  },
+                  child: SvgPicture.asset(AppIcons.threedot),
+                ),
               ],
             ),
             SizedBox(height: 16.h),
@@ -81,7 +121,10 @@ class CustomJobDetailTile extends StatelessWidget {
             SizedBox(height: 16.h),
             CustomRowText(title: 'Status', discription: status),
             SizedBox(height: 16.h),
-            CustomRowText(title: 'Admin Note', discription: adminNote ?? "-----"),
+            CustomRowText(
+              title: 'Admin Note',
+              discription: adminNote ?? "-----",
+            ),
           ],
         ),
       ),

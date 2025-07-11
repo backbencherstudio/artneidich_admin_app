@@ -15,6 +15,6 @@ class RouteConst{
   static const String otpVerificationScreen = '/otp-verification';
   static const String successfullyRegisteredScreen = '/successfully';
   static const String splash = '/splash';
-
+  static const String fullUserList = "/FullUserList";
 
 }

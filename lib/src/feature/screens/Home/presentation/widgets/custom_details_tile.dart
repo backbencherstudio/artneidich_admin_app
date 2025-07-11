@@ -1,17 +1,21 @@
 import 'package:artneidich_admin/src/core/constant/icons.dart';
 import 'package:artneidich_admin/src/core/theme/theme_extension/color_pallete.dart';
+import 'package:artneidich_admin/src/feature/common_widgets/commonWidget.dart';
 import 'package:artneidich_admin/src/feature/screens/Home/presentation/widgets/custom_row_text.dart';
+import 'package:artneidich_admin/src/feature/screens/label_management_screens/presentation/widgets/menu_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class CustomDetailsTile extends StatelessWidget {
+class CustomDetailsTile extends ConsumerWidget {
   final int index;
   final String userName;
   final String email;
   final String phoneNumber;
   final String role;
-  const CustomDetailsTile({
+  final GlobalKey _key = GlobalKey();
+  CustomDetailsTile({
     super.key,
     required this.index,
     required this.userName,
@@ -21,7 +25,7 @@ class CustomDetailsTile extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final textTheme = Theme.of(context).textTheme;
 
     return Container(
@@ -34,7 +38,6 @@ class CustomDetailsTile extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          
           children: [
             Row(
               children: [
@@ -55,7 +58,26 @@ class CustomDetailsTile extends StatelessWidget {
                   ),
                 ),
                 Spacer(),
-                SvgPicture.asset(AppIcons.threedot),
+                GestureDetector(
+                  key: _key,
+                  onTap: () async {
+                    final value = await customPopupMenu(
+                      context: context,
+                      key: _key,
+                      list: {"Edit", "Delete"},
+                      iconListPath: [AppIcons.editIcon, AppIcons.delete],
+                    );
+                    if (value != null) {
+                      debugPrint('\n\n$value\n\n');
+                    }
+                    if (value == 'Delete') {
+                      // showDeleteSheet(context: context, ref: ref, onTap: () {});
+
+                      CommonWidget.deleteSheet(context: context, onTap: (){}, ref: ref);
+                    }
+                  },
+                  child: SvgPicture.asset(AppIcons.threedot),
+                ),
               ],
             ),
             SizedBox(height: 16.h),
