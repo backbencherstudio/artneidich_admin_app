@@ -19,33 +19,35 @@ class JobManagementScreen extends ConsumerWidget {
     return Scaffold(
       body: Padding(
         padding: AppPadding.horizontalPadding,
-        child: Column(
-          children: [
-            CommonWidget.appBar(title: "Job List"),
-            SizedBox(height: 16.h),
-            TextFormField(
-              decoration: InputDecoration(
-                hintText: "Search here...",
-                prefixIcon: Padding(
-                  padding: EdgeInsets.only(left: 16.w),
-                  child: SvgPicture.asset(AppIcons.search),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              CommonWidget.appBar(title: "Job List"),
+              SizedBox(height: 16.h),
+              TextFormField(
+                decoration: InputDecoration(
+                  hintText: "Search here...",
+                  prefixIcon: Padding(
+                    padding: EdgeInsets.only(left: 16.w),
+                    child: SvgPicture.asset(AppIcons.search),
+                  ),
                 ),
               ),
-            ),
-
-            Consumer(
-              builder: (_, ref, _) {
-                debugPrint('\ncalling user data \n');
-                final userData = ref.watch(userJobListProvider);
-
-                return userData.when(
-                  data: (userData) {
-                    return Expanded(
-                      child: ListView.builder(
+          
+              Consumer(
+                builder: (_, ref, _) {
+                  debugPrint('\ncalling user data \n');
+                  final userData = ref.watch(userJobListProvider);
+          
+                  return userData.when(
+                    data: (userData) {
+                      return ListView.builder(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
                         itemCount: userData.length,
                         itemBuilder: (_, index) {
                           final user = userData[index];
-
+                                
                           return Padding(
                             padding: EdgeInsets.only(bottom: 11.h),
                             child: CustomJobDetailTile(
@@ -60,16 +62,17 @@ class JobManagementScreen extends ConsumerWidget {
                             ),
                           );
                         },
-                      ),
-                    );
-                  },
-                  error: (error, stack) =>
-                      Center(child: Text('Failed to load data')),
-                  loading: () => Center(child: CircularProgressIndicator()),
-                );
-              },
-            ),
-          ],
+                      );
+                    },
+                    error: (error, stack) =>
+                        Center(child: Text('Failed to load data')),
+                    loading: () => Center(child: CircularProgressIndicator()),
+                  );
+                },
+              ),
+          SizedBox(height: 200.h,)
+            ],
+          ),
         ),
       ),
       floatingActionButton: Padding(

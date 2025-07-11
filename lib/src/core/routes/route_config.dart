@@ -12,7 +12,7 @@ import 'build_page_with_transition.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteConst.labelManagementScreen,
+    initialLocation: RouteConst.homeScreen,
 
     routes: [
       
@@ -102,6 +102,17 @@ class RouteConfig {
         },
       ),
   
+   GoRoute(
+        path: RouteConst.jobMgmntScreen,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            context: context,
+            state: state,
+            transitionType: PageTransitionType.slideRightToLeft,
+            child: JobManagementScreen(),
+          );
+        },
+      ),
   
   GoRoute(
         path: RouteConst.fullUserList,
