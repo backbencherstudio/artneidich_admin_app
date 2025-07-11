@@ -10,7 +10,7 @@ import '../../../core/theme/theme_extension/color_pallete.dart';
 Future<void> showDeleteSheet({
   required BuildContext context,
   required Function onTap,
-   WidgetRef ?ref,
+  WidgetRef? ref,
 }) async {
   final textTheme = Theme.of(context).textTheme;
   ref?.read(bottomSheetVisibilityProvider.notifier).state = true;
@@ -32,7 +32,7 @@ Future<void> showDeleteSheet({
               left: 8.w,
               right: 8.w,
               top: 20.h,
-              bottom: 20.h
+              bottom: 20.h,
             ),
             decoration: BoxDecoration(
               color: Color(0xffffffff),
@@ -132,18 +132,14 @@ Future<void> showDeleteSheet({
                     ),
                   ],
                 ),
-                                SizedBox(height: 18.h),
-
+                SizedBox(height: 18.h),
               ],
             ),
           ),
         ),
       );
     },
-  ).whenComplete(
-
-    (){
-       ref?.read(bottomSheetVisibilityProvider.notifier).state = false;
-    }
-  );
+  ).whenComplete(() {
+    ref?.read(bottomSheetVisibilityProvider.notifier).state = false;
+  });
 }

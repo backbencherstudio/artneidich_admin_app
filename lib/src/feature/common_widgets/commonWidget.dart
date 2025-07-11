@@ -9,7 +9,7 @@ class CommonWidget {
       CustomAppbar(title: title,);
 
 
- static Future<void> deleteSheet({required BuildContext context , required Function onTap}) async {
-   await showDeleteSheet(context : context, onTap: onTap,);
+ static Future<void> deleteSheet({required BuildContext context , required Function onTap, required WidgetRef ref}) async {
+   await showDeleteSheet(context : context, onTap: onTap, ref: ref);
  }
 }
