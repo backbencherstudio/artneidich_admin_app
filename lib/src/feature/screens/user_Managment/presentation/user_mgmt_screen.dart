@@ -11,11 +11,11 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/constant/icons.dart';
 
-class UserMgmtScreen extends StatelessWidget {
+class UserMgmtScreen extends ConsumerWidget {
   const UserMgmtScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
 
     return Scaffold(
       body: Padding(
@@ -85,7 +85,7 @@ class UserMgmtScreen extends StatelessWidget {
               children: [Icon(Icons.add), Text("Add")],
             ),
             onPressed: () async {
-              showCreateNewUserSheet(context);
+              showCreateNewUserSheet(context, ref);
             },
           ),
         ),

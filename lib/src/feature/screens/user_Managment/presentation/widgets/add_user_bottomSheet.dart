@@ -1,10 +1,12 @@
+import 'package:artneidich_admin/src/feature/common_widgets/bottom_nav_bar/bottom_sheet_provider.dart';
 import 'package:artneidich_admin/src/feature/screens/user_Managment/presentation/widgets/custom_text_form.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/theme/theme_extension/color_pallete.dart';
 
-void showCreateNewUserSheet(BuildContext context) {
+void showCreateNewUserSheet(BuildContext context, WidgetRef ref) {
   final textTheme = Theme.of(context).textTheme;
 TextEditingController nameController = TextEditingController();
 TextEditingController emailController = TextEditingController();
@@ -12,6 +14,7 @@ TextEditingController phoneController = TextEditingController();
 TextEditingController roleController = TextEditingController();
 TextEditingController passwordController = TextEditingController();
 TextEditingController confirmPasswordController = TextEditingController();
+  ref.read(bottomSheetVisibilityProvider.notifier).state = true;
 
   showModalBottomSheet(
     context: context,
@@ -126,5 +129,8 @@ TextEditingController confirmPasswordController = TextEditingController();
         ),
       );
     },
-  );
+  ).whenComplete((){
+      ref.read(bottomSheetVisibilityProvider.notifier).state = false;
+
+  });
 }

@@ -11,11 +11,11 @@ import '../../../../core/constant/padding.dart';
 import '../../../../core/theme/theme_extension/color_pallete.dart';
 import '../../../common_widgets/commonWidget.dart';
 
-class JobManagementScreen extends StatelessWidget {
+class JobManagementScreen extends ConsumerWidget {
   const JobManagementScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
 
     return Scaffold(
       body: Padding(
@@ -90,7 +90,7 @@ class JobManagementScreen extends StatelessWidget {
               children: [Icon(Icons.add), Text("Add")],
             ),
             onPressed: () async {
-              showCreateNewUserSheet(context);
+              showCreateNewUserSheet(context, ref);
             },
           ),
         ),
