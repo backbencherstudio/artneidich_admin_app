@@ -5,5 +5,6 @@ class RouteConst{
   static const String settingScreen = '/SettingScreen';
   static const String userMgmScreen = '/UserMgmtScreen';
   static const String labelManagementScreen = '/labelManagement';
+  static const String fullUserList = "/FullUserList";
 
 }

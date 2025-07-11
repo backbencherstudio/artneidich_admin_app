@@ -16,7 +16,6 @@ class JobManagementScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     return Scaffold(
       body: Padding(
         padding: AppPadding.horizontalPadding,
@@ -48,17 +47,17 @@ class JobManagementScreen extends ConsumerWidget {
                           final user = userData[index];
 
                           return Padding(
-                            padding:  EdgeInsets.only(bottom:11.h ),
+                            padding: EdgeInsets.only(bottom: 11.h),
                             child: CustomJobDetailTile(
-                              
-                              index: index, 
-                              inspectorName: user.inspectorName, 
+                              index: index,
+                              inspectorName: user.inspectorName,
                               address: user.address,
-                              fhaNumber: user.fhaNumber , 
-                              createdAt: user.created, 
-                              completedAt: user.completed ,
-                              status: user.status, 
-                              adminNote: user.adminNote ),
+                              fhaNumber: user.fhaNumber,
+                              createdAt: user.created,
+                              completedAt: user.completed,
+                              status: user.status,
+                              adminNote: user.adminNote,
+                            ),
                           );
                         },
                       ),
@@ -74,24 +73,28 @@ class JobManagementScreen extends ConsumerWidget {
         ),
       ),
       floatingActionButton: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: SizedBox(
-          width: 98.w,
-          height: 60.h,
-          child: FloatingActionButton(
-            elevation: 10,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadiusGeometry.circular(16.r),
+        padding: EdgeInsetsGeometry.only(bottom: 100.h),
+
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: SizedBox(
+            width: 98.w,
+            height: 60.h,
+            child: FloatingActionButton(
+              elevation: 10,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadiusGeometry.circular(16.r),
+              ),
+              backgroundColor: AppColor.primaryColor,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [Icon(Icons.add), Text("Add")],
+              ),
+              onPressed: () async {
+                showCreateNewUserSheet(context, ref);
+              },
             ),
-            backgroundColor: AppColor.primaryColor,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [Icon(Icons.add), Text("Add")],
-            ),
-            onPressed: () async {
-              showCreateNewUserSheet(context, ref);
-            },
           ),
         ),
       ),

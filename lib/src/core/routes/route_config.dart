@@ -4,6 +4,7 @@ import 'package:artneidich_admin/src/feature/screens/Home/presentation/home_scre
 import 'package:artneidich_admin/src/feature/screens/job_management_screen/presentation/job_management_screen.dart';
 import 'package:artneidich_admin/src/feature/screens/label_management_screens/presentation/label_management_screen.dart';
 import 'package:artneidich_admin/src/feature/screens/profile_setting/profile_settings_screen.dart';
+import 'package:artneidich_admin/src/feature/screens/user_Managment/presentation/full_user_list.dart';
 import 'package:artneidich_admin/src/feature/screens/user_Managment/presentation/user_mgmt_screen.dart';
 import 'package:go_router/go_router.dart';
 
@@ -23,7 +24,7 @@ class RouteConfig {
             routes: [
               GoRoute(
                 path: RouteConst.homeScreen,
-                builder: (context, state) => const HomeScreen(),
+                builder: (context, state) =>  HomeScreen(),
               ),
             ],
           ),
@@ -102,6 +103,17 @@ class RouteConfig {
       ),
   
   
+  GoRoute(
+        path: RouteConst.fullUserList,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            context: context,
+            state: state,
+            transitionType: PageTransitionType.slideRightToLeft,
+            child: FullUserList(),
+          );
+        },
+      ),
   
   
     ]
